@@ -1,1 +1,10 @@
 # Real-or-Not-NLP-with-Disaster-Tweets-from-Kaggle
+This dataset is from Kaggle's competition Real or Not NLP with Disaster Tweets: https://www.kaggle.com/c/nlp-getting-started/overview. The challenge of this competition is to 
+build a model that can distinguish when a Tweet from Twitter is referring to an actual natural disaster from metaphors or figurative speeches. As humans, it is obvious a tweet that says "This is fire!" referring to a trending topic is not of an actual fire or natural disaster but it may not be so clear to a machine. 
+
+The data provided included a training dataset (7613 entries) and a test dataset (3263 entries) with features for the actual tweets, location, keywords and id. The training 
+dataset has the target feature that has been labeled. Since I am dealing with Tweets, I had to clean the data by removing URLS, special characters and emojis that can disrupt the model. I used NLTK for further data cleaning and extraction such as removing stopwords, lemmatizing and stemming words. For feature engineering, I used TextBlob to score the subjectivity and polarity of each Tweet that may help to distinguish tweets that are related to natural disasters vs those that are metaphorical or figurative as these types of 
+speach can be quite subjective or polarized. For instance, a Tweet mentioning "This is fire! So rad!" is a very positive tweet that does not relate to an actual fire. 
+
+After data preparation, the classification-based model was tested using the following algorithms: Logistic Regression, Decision Tree Classifier, Random Forest Classifier and 
+Gradient Boosting Classifier. The best performing algorithm was Logistic Regression that resulted in an accuracy score: 0.79, precision score: 0.80, recall score: 0.70 and f1 score: 0.74 when ran against the validation dataset (reserved 20% of training dataset). The results predicted by this model was placed in the top 42% on the competition's leaderboard with the mean F-score of the results = 0.79895.
